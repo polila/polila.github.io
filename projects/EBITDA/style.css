@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #141c3a;
+  color: white;
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+}
+
+p {
+  display: block;
+  margin: 0 auto;
+  font-size: 36px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 400px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+a:hover {
+  color: grey;
+}
+
+img {
+  margin: 0 auto;
+  width: 250px;
+  display: block;
+}
+
+.container {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px; 
+  width: 300px;
+  height: 75px;
+}
+
+#button {
+  margin: 0 auto;
+  border: none;
+  position: relative;
+  border-radius: 30px;
+  width: 300px;
+  height: 75px;
+  background-color: white;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: black;
+}
+
+#ask {
+  margin: 0 auto;
+  border: none;
+  position: relative;
+  border-radius: 30px;
+  width: 300px;
+  height: 75px;
+  color: black;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -10;
+  background-color: #141c3a;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+
+#overlay {
+  position: relative;
+  padding: 50px;
+}

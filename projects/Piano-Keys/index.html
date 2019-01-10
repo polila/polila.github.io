@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+	    <meta name="Patrick Olila" content="Personal Website">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<title>Patrick Olila</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	    <link rel="icon" type="image/png" href="audio/p.png">
+	    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+	</head>
+
+	<body id="body">
+
+		<p class="title">Piano Player</p>
+		<p id="demo">Follow the song below to play the piano.</p>
+
+		<input type="button" value="PLAY"  onclick="playNote()">
+
+		<audio id="c_octave1_audio" src="audio/middle_c.mp3"></audio>
+		<audio id="c_octave1_sharp_audio" src="audio/mid_c_sharp.mp3"></audio>
+		<audio id="c_octave2_audio" src="audio/high_c.mp3"></audio>	
+
+		<audio id="d_octave1_audio" src="audio/middle_d.mp3"></audio>
+		<audio id="d_octave1_sharp_audio" src="audio/mid_d_sharp.mp3"></audio>
+
+		<audio id="e_octave1_audio" src="audio/middle_e.mp3"></audio>
+
+		<audio id="f_octave1_audio" src="audio/middle_f.mp3"></audio>
+		<audio id="f_octave1_sharp_audio" src="audio/mid_f_sharp.mp3"></audio>
+
+		<audio id="g_octave1_audio" src="audio/middle_g.mp3"></audio>
+		<audio id="g_octave1_sharp_audio" src="audio/mid_g_sharp.mp3"></audio>
+
+		<audio id="a_octave1_audio" src="audio/middle_a.mp3"></audio>
+		<audio id="a_octave1_sharp_audio" src="audio/mid_a_sharp.mp3"></audio>
+
+		<audio id="b_octave1_audio" src="audio/middle_b.mp3"></audio>
+
+
+
+		<section class="piano">
+			<section id="c-key" class="key">
+				<section class="keynote" id="c_octave1_audio">C</section>
+			</section>
+			<section id="c-sharp-key" class="black-key">
+				<section class="black-keynote">C#</section>
+			</section>
+
+			<section id="d-key" class="key">
+				<section class="keynote">D</section>
+			</section>
+			<section id="d-sharp-key" class="black-key">
+				<section class="black-keynote">D#</section>
+			</section>
+
+			<section id="e-key" class="key">
+				<section class="keynote">E</section>
+			</section>
+
+			<section id="f-key" class="key">
+				<section class="keynote">F</section>
+			</section>
+			<section id="f-sharp-key" class="black-key">
+				<section class="black-keynote">F#</section>
+			</section>
+
+			<section id="g-key" class="key">
+				<section class="keynote">G</section>
+			</section>
+			<section id="g-sharp-key" class="black-key">
+				<section class="black-keynote">G#</section>
+			</section>
+
+			<section id="a-key" class="key">
+				<section class="keynote">A</section>
+			</section>
+			<section id="a-sharp-key" class="black-key">
+				<section class="black-keynote">A#</section>
+			</section>
+
+			<section id="b-key" class="key">
+				<section class="keynote">B</section>
+			</section>
+
+			<section id="high-c-key" class="key">
+				<section class="keynote">C</section>
+			</section>
+		</section>
+
+		<section id="lyrics">
+
+			<section id="col-one">
+				<section id="word-one">HAP-</section>
+				<section id="letter-note-one">G</section>
+			</section>
+
+			<section id="col-two">
+				<section id="word-two">PY</section>
+				<section id="letter-note-two">G</section>
+			</section>
+
+			<section id="col-three">
+				<section id="word-three">BIRTH-</section>
+				<section id="letter-note-three">A</section>
+			</section>
+
+			<section id="col-four">
+				<section id="word-four">DAY</section>
+				<section id="letter-note-four">G</section>
+			</section>
+
+			<section id="col-five">
+				<section id="word-five">TO</section>
+				<section id="letter-note-five">C</section>
+			</section>
+
+			<section id="col-six">
+				<section id="word-six">YOU</section>
+				<section id="letter-note-six">B</section>
+			</section>
+
+			<section id="col-optional" class="col-optional">
+				<section id="word-optional">END</section>
+				<section id="letter-note-optional">A</section>
+			</section>
+
+			<button id="first-next-line">Line 2</button>
+
+			<button id="second-next-line">Line 3</button>
+
+			<button id="third-next-line">Line 4</button>
+
+			<button id="fourth-next-line">RESET</button>
+
+		</section>
+
+		<p class="title"><a href="https://en.wikipedia.org/wiki/Happy_Birthday_to_You#%22Happy_birthday_to_you%22" target="_blank">Lyrics: Happy Birthday to You</a></p>
+		<p id="demo">
+			Happy birthday to you <br>
+			Happy birthday to you <br>
+			Happy birthday dear [NAME] <br>
+			Happy birthday to you.
+		</p>
+
+		<script src="main.js"></script>
+
+	</body>
+
+</html>

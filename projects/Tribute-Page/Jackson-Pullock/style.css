@@ -1,0 +1,71 @@
+body, html {
+	margin: 0;
+	display: flex;
+	font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', Arial;
+	color: black;
+}
+
+#main { 
+	margin: 20px;
+	height: 95vh;
+	width: 100vw;
+	display: flex;
+}
+
+#about {
+	text-align: center;
+	margin: 0 auto;
+	padding: 0;
+	height: 97.5%;
+	width: 40%;
+	display: block;
+}
+
+#content {
+	margin: 0 auto;
+	padding: 0;
+	height: 97.5%;
+	width: 100%;
+	display: block;
+}
+
+#title {
+	margin: 0 auto;
+	text-transform: uppercase;
+}
+
+#img-div {
+	margin: 0 auto;
+	padding: 8px;
+}
+
+#timeline {
+	text-align: left;
+	margin: 8px;
+	margin-left: 0;
+	padding: 8px;
+}
+
+#row {
+	margin: 0;
+	padding: 12px;
+	padding-bottom: 0;
+	display: flex;
+}
+
+#artwork-div {
+	display: flex;
+	position: block;
+	margin: 0;
+	padding: 5px;
+	width: 500px;
+	height: 300px;
+}
+
+img {
+	max-width: 100%;
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+}

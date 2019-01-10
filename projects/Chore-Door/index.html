@@ -1,0 +1,75 @@
+<!--
+Game Instructions:
+(1) Hiding behind one of these doors is the ChoreBot.
+(2) Your mission is to open all of the doors without running into the ChoreBot.
+(3) If you manage to avoid the ChoreBot until the very last door, you win!
+(4) See if you can score a winning streak!
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Patrick Olila</title>
+		<link rel="stylesheet" type="text/css" href="./style.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Work+Sans">
+		<link rel="icon" type="image/png" href="img/p.png">
+	</head>
+
+	<body>
+		<div class="header">
+			<h1>... Dude, where's the robot?</h1>
+		</div>
+
+		<div class="door-row">
+			<img id="door1" class="door-frame" src="closed_door.png" id="first-door">
+
+			<img id="door2" class="door-frame" src="closed_door.png" id="second-door">
+
+			<img id="door3" class="door-frame" src="closed_door.png" id="third-door">
+
+			<div id="bttn" class="buttn-row">Good Luck!</div>
+		</div>
+
+		<table class="scoreboard">
+			<tbody>
+				<tr>
+					<th class="score-txt">Current streak:</th>
+					<th class="score-txt">Best Streak:</th>
+				</tr>
+				<tr>
+					<th class="box-score" id="score-num">0</th>
+					<th class="box-score" id="streak-num">0</th>
+				</tr>
+			</tbody>
+		</table>
+		
+		<div class="instruct-row">
+			<h2>Instructions</h2>
+		</div>
+
+		<table class="li-row">
+			<tbody>
+				<tr>
+					<td class="li-num">1</td>
+					<td class="li-txt">Hiding behind one of these doors is a robot.</td>
+				</tr>
+				<tr>
+					<td class="li-num">2</td>
+					<td class="li-txt">Your mission is to open all of the doors without running into the robot.</td>
+				</tr>
+				<tr>
+					<td class="li-num">3</td>
+					<td class="li-txt">If you manage to avoid the robot until the very last door, you win!</td>
+				</tr>
+				<tr>
+					<td class="li-num">4</td>
+					<td class="li-txt">See if you can score a winning streak!</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<script type="text/javascript" src="script.js"></script>
+
+	</body>
+</html>
