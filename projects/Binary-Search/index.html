@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Patrick Olila</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet"> 
+		<link rel="icon" type="image/png" href="../../img/p.png">
+
+	</head>
+	<body style="padding: 25px;">
+		<div class="header">
+			<div class="summary">
+				<center>
+					<h1>Binary Search</h1>
+					<a href="https://github.com/polila" target="_blank"><i class="fab fa-github"></i></a>
+            		<a href="https://ca.linkedin.com/in/patrick-olila-b29518144" target="_blank"><i class="fab fa-linkedin"></i></a>
+            		<a href="https://codepen.io/polila/#" target="_blank"><i class="fab fa-codepen"></i></a>
+            		<a href="https://stackexchange.com/users/11590631/patrick-olila?tab=accounts" target="_blank"><i class="fab fa-stack-overflow"></i></a>
+				</center>
+				<h2>Instructions</h2>
+				<ol>
+					<li>Hiding behind these doors lies a cute dog</li>
+					<li>Let <em>min =</em> 1st door and <em>max = n</em> doors</li>
+					<li>One of three scenarios proceed:</li>
+					<ul>
+						<li>The <em>nth</em> door selected was the correct door</li>
+						<li>The <em>nth</em> door selected was lower on the list relative to the correct door. If so, the new <em>min</em> becomes the <em>nth</em> door selected and the new range becomes [<em>n</em> : max]
+						<li>The <em>nth</em> door selected was higher on the list relative to the correct door. If so, the new <em>max</em> becomes the <em>nth</em> door selected and the new range becomes [min : <em>n</em>]</li>
+					</ul>
+				</ol>
+				<h2>Analysis</h2>
+				<p>If you repeatedlly select the door at the position in the middle for every try, then the number of tries entail:</p>
+				<ul>
+					<li><a href="https://en.wikipedia.org/wiki/Binary_logarithm" style="text-decoration: none; color: #FF4136" target="_blank">Base-2 log of <em>n</em></a></a> (worst case), the number of times you need to divide <em>n</em> by 2 in order to get 1</li>
+					<li>One (best case), the first door you select is the correct one</li>
+				</ul>
+				<center>
+					<table>
+						<tr>
+							<th><em>n</em></th>
+							<th>base-2 log of<em>n</em></th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>3</td>
+						</tr>
+						<tr>	
+							<td>16</td>
+							<td>4</td>
+						</tr>
+						<tr>	
+							<td>32</td>
+							<td>5</td>
+						</tr>
+						<tr>	
+							<td>64</td>
+							<td>6</td>
+						</tr>
+						<tr>	
+							<td>128</td>
+							<td>7</td>
+						</tr>
+						<tr>	
+							<td>256</td>
+							<td>8</td>
+						</tr>
+						<tr>	
+							<td>512</td>
+							<td>9</td>
+						</tr>
+						<tr>	
+							<td>1,024</td>
+							<td>10</td>
+						</tr>
+						<tr>	
+							<td>1,048,576</td>
+							<td>20</td>
+						</tr>
+						<tr>	
+							<td>2,097,152</td>
+							<td>21</td>
+						</tr>
+					</table>
+					<p>For a better explanation: <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm" target="_blank" style="text-decoration: none; color: #FF4136">Binary Search</a></p>
+					<div id="count-container" style="background-color: #fff">
+						<h3 style="color: #000">Count:</h3>
+						<p id="counter" style="color: #000; padding-bottom: 15px"></p>
+					</div>
+
+					<input id="numberOfDoors" type="text">
+					
+					<br>
+					<br>
+					
+					<input id="submit-bttn" type="submit" value="Submit">
+					
+					<input id="reset-bttn" type="submit" value="Reset">
+					
+					<br>
+					<br>
+				</center>
+			</div>
+		</div>
+
+		<div id="container">
+
+		</div>
+
+		<script src="script.js"></script>
+
+	</body>
+</html>
