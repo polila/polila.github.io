@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Patrick Olila</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	    <link rel="icon" type="image/png" href="../../img/p.png">
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+
+	<body>
+
+		<nav id="nav-bar">
+
+			<header>Financial Modeling:
+					<br>
+					Level I (AFM)
+			</header>
+
+			<ul>
+				<a class="nav-link" href="#references" rel="internal">
+					<li><strong>References</strong></li>
+				</a>
+				<a class="nav-link" href="#preface" rel="internal">
+					<li><strong>Preface</strong></li>
+				</a>
+				<a class="nav-link" href="#overview" rel="internal">
+					<li><strong>Overview</strong></li>
+				</a>
+				<a class="nav-link" href="#part-1" rel="internal">
+					<li><strong>Module 1:</strong> Model Planning, Setup and Assumptions</li>
+				</a>
+				<a class="nav-link" href="#part-2" rel="internal">
+					<li><strong>Module 2:</strong> Revenues</li>
+				</a>
+				<a class="nav-link" href="#part-3" rel="internal">
+					<li><strong>Module 3:</strong> Operating Costs and Depreciation Expense</li>
+				</a>
+				<a class="nav-link" href="#part-4" rel="internal">
+					<li><strong>Module 4:</strong> Income Tax Expense and Working Capital</li>
+				</a>
+				<a class="nav-link" href="#part-5" rel="internal">
+					<li><strong>Module 5:</strong> Debt, Interest and Shareholders' Equity</li>
+				</a>
+				<a class="nav-link" href="#part-6" rel="internal">
+					<li><strong>Module 6:</strong> Financial Statements</li>
+				</a>
+				<a class="nav-link" href="#part-7" rel="internal">
+					<li><strong>Module 7:</strong> Summary Page, Formatting, Presentation and Speed</li>
+				</a>
+				<a class="nav-link" href="#part-8" rel="internal">
+					<li><strong>Module 8:</strong> Model Troubleshooting, Fixing Errors and Avoiding Pitfalls</li>
+				</a>
+				<a class="nav-link" href="#resources" rel="internal">
+					<li><strong>Suggested Readings</strong></li>
+				</a>
+				<br>
+				<br>
+				<br>
+				<br>
+				<center>
+				<a href="#" rel="internal">
+					<li style="padding-top: 20px">
+						<a href="https://github.com/polila" target="_blank">
+							<i class="fab fa-github"></i>
+						</a>
+						<a href="https://www.linkedin.com/in/patrick-olila/" target="_blank">
+							<i class="fab fa-linkedin"></i>
+						</a>
+						<a href="https://codepen.io/polila/#" target="_blank">
+							<i class="fab fa-codepen"></i>
+						</a>
+						<a href="https://stackexchange.com/users/11590631/patrick-olila?tab=accounts" target="_blank">
+							<i class="fab fa-stack-overflow"></i>
+						</a>
+					</li>
+				</a>
+				</center>
+			</ul>
+
+		</nav>
+
+		<main id="main-doc">
+
+			<section class="main-section" id="references">
+				<header>References</header>
+				<article>
+					<ul>
+						<li><a href="https://www.sec.gov/search/search.htm" target="_blank">SEC Company (American) Filings</a></li>
+						<li><a href="https://www.sedar.com/search/search_form_pc_en.htm" target="_blank">SEDAR Company (Canadian) Filings</a></li>
+						<li>
+							<a href="https://www.wallstreetprep.com/knowledge/excel-shortcuts/" target="_blank">Microsoft Excel Keyboard Shortcuts</a>
+						<table style="background-color: rgba(0,0,0,0.5); padding: 10px">
+								<tr>
+									<th>Event</th>
+									<th>Keys</th>
+								</tr>
+								<tr>
+									<td>Jump cell to cell</td>
+									<td style="display: inline-block">
+										Ctrl + 
+										(<i class="fas fa-arrow-left"></i> or 
+										<i class="fas fa-arrow-up"></i> or 
+										<i class="fas fa-arrow-right"></i> or 
+										<i class="fas fa-arrow-down"></i>)
+									</td>
+								</tr>
+								<tr>
+									<td>Edit cell</td>
+									<td>F2</td>
+								</tr>
+								<tr>
+									<td>Copy</td>
+									<td style="display: inline-block;">
+										Ctrl + Shift + 
+										(<i class="fas fa-arrow-left"></i> or 
+										<i class="fas fa-arrow-up"></i> or 
+										<i class="fas fa-arrow-right"></i> or 
+										<i class="fas fa-arrow-down"></i>)
+
+									</td>
+								</tr>
+						</table>	
+						</li>
+						<li>
+							<a href="https://www.wallstreetprep.com/knowledge/financial-modeling-best-practices-and-conventions/" target="_blank">Best Practices</a>
+							<table style="background-color: rgba(0,0,0,0.5); padding: 10px">
+								<tr>
+									<th>Cell Type</th>
+									<th>Formula</th>
+									<th>Color</th>
+								</tr>
+								<tr>
+									<td style="color: blue">Hard-coded numbers (inputs)</td>
+									<td style="color: blue">=456</td>
+									<td style="color: blue">Blue</td>
+								</tr>
+								<tr>
+									<td style="color: black">Formulas (calculations)</td>
+									<td style="color: black">=A1*A2</td>
+									<td style="color: black">Black</td>
+								</tr>
+								<tr>
+									<td style="color: green">Links to other worksheets</td>
+									<td style="color: green">=Sheet2!A1</td>
+									<td style="color: green">Green</td>
+								</tr>
+								<tr>
+									<td style="color: red">Links to other files</td>
+									<td style="color: red">=[Book2]Sheet1!$A$1</td>
+									<td style="color: red">Red</td>
+								</tr>
+								<tr>
+									<td style="color: darkred">Links to data providers (i.e. CIQ, Factset)</td>
+									<td style="color: darkred">=CIQ(IQ_TOTAL_REV)</td>
+									<td style="color: darkred">Dark Red</td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</article>
+			</section>
+
+			<section class="main-section" id="preface">
+				<header>Preface</header>
+				<article>
+					<p>This is a technical documentation page for the <a href="https://fminstitute.com/afm/" target="_blank">AFM level I</a> exam (April 2019). If you find any mistakes in the content or have suggestions, please let <a href="mailto:polila@ryerson.ca">me</a> know. On a side note, here is a <a href="https://fminstitute.us16.list-manage.com/track/click?u=0e30de651d446f04ade09b8ef&id=2826d902a9&e=0bede48994" target="_blank">link</a> to join the Slack group.</p>
+					<P>That said, financial models are intended to serve a purpose. They are tools for communicating a specific objective so that users can make informed decisions. This can entail models for project assessments, credit analysis, or evaluations. That being said, the AFM I reporting objectives are based on <em>assessing and predicting cash flows</em> using <a href="https://www.iasplus.com/en/standards/other/framework#link6" target="_blank">general purpose financial statements</a>, IFRS or U.S. GAAP compliant.</P>
+				</article>
+			</section>
+
+			<section class="main-section" id="overview">
+				<header>Overview</header>
+				<article>
+					<p>
+						<em>"In theory there is no difference between theory and practice. In practice there is."</em>
+						<br> - Yogi Berra
+					</p>
+					<p>Financial models are used to aid decision makers. Specifically in this context, <em>assessing and predicting cash flows</em> inherently entail forward-looking assumptions by making reasonable estimates and accounting for cases through scenario analysis. Which means that it is imperative for well-designed financial models to be developed with the appropriate attributes by having meaningful semantic structure, following best-practices, and objectively meeting guidelines. The process is collaborative as multiple stakeholders are involved, so it is important to consider that the models will be reviewd and hence needs to be ledgable.</p>
+					<p><strong>Attributes - </strong>Elements that define a well-designed model:
+						<ol>
+							<li><em>Dynamic</em> - Assumptions should not be static, and making adjustments should cascade with the model</li>
+							<li><em>Flexible</em> - Account for modularity inorder to reduce complexities, <a href="https://en.wikipedia.org/wiki/Occam's_razor" target="_blank">simple is elegant</a></li>
+							<li><em>Intuitive</em> - Should reflect the nature of the business accordingly</li>
+							<li><em>Transparent</em> - Flows in logical order</li>
+							<li><em>Printable</em> - Easy to format</li>
+							<li><em>Transferable</em> - Usable and material to other stakehodlers</li>
+						</ol>
+					</p>
+					<p><strong>Structure - </strong>More of an art than a science, but a boilerplate model includes: 
+						<ol>
+							<li><em>Cover</em> - Meta data</li>
+							<li><em>Summary</em> - Key metrics</li>
+							<li><em>Assumptions</em> - Variables</li>
+							<li><em>Scenarios</em> - Conditionals</li>
+							<li><em>Model</em> - Results conveyed through financial statements</li>
+							<li><em>Outputs</em> - Ratio/valuation analysis</li>
+						</ol>
+					</p>
+					<p><strong>Best-practices - </strong> Formatting (i.e., color coding, fonts, formulas, currency, units, percents, etc.)</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="part-1">
+				<header>Model Planning, Setup and Assumptions</header>
+				<article>
+					<ol>
+						<li>Choose a public company. Read their most recent annual report (i.e., 10K)</li>
+						<li>Create an Excel file with the following five tabs: Cover, Summary, Assumptions, Scenarios, and Model.</li>
+						<li>Enter the trailing three years of the company's historical financial statements (income, cash flow, balance sheet)</li>
+						<li>Analyze and synthesize the necessary assumptions required to forecast the financial statements under the "Assumptions" tab.</li>
+						<li>Create scenarios for critical variables</li>
+					</ol>
+					<p><strong>Topics:</strong> Model structure, design, planning, inputs, assumptions, scenario analysis</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="part-2">
+				<header>Revenues</header>
+				<article>
+					<ol>
+						<li>Forecast revenue as a function of price and sales volume</li>
+						<li>If the company has multiple operating segments, apportion the revenue schedule for the ones that are material and group the ones that are insignificant which can be forecasted by an implied growth rate</li>
+						<li>Factor in any discounts or deductions that affect revenues</li>
+					</ol>
+					<p><strong>Topics:</strong> Prices and sales volume, gross and net revenues, capacity constraints</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="part-3">
+				<header>Operating Costs and Depreciation Expense</header>
+				<article>
+					<ol>
+						<li>Create an operating cost schedule to captures the fixed and variable cost and a depreciation schedule to forecast depreciation expense</li>
+						<li>Forecast variable costs on a per-unit basis</li>
+						<li>Forecast fixed costs on an aggregate basis</li>
+						<li>By capturing the company's cost structure, evaluate their operating leverage</li>
+						<li>Calculate gross profit, EBITDA, and operating profit</li>
+						<li>Evaluate the depreciation methodologies used. If it is not disclosed, apply the most appropriate.</li>
+						<li>Use a <a href="https://support.office.com/en-us/article/lookup-function-446d94af-663b-451d-8251-369d5e3864cb" target="_blank">lookup</a> function to display the company's CAPEX vertically</li>
+						<li>Build a waterfall depreciation schedule to calculate the forecasted CAPEX</li>
+					</ol>
+					<p><strong>Topics:</strong> Fixed and variable operating costs, operating leverage, income statement, depreciation methods, CAPEX</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="part-4">
+				<header>Income Tax Expense and Working Capital</header>
+				<article>
+					<ol>
+						<li>Create a tax schedule to forecast cash tax and deferred tax expense and a working capital schedule to forecast non-interest bearing short-term assets and liabilities</li>
+						<li>Forecast depreciation expense relative to the comapny's jurisdiction</li>
+						<li>Calculate pre-tax income used for financial reporting and tax-book conformity</li>
+						<li>Calculate the number of days per period using the <a href="https://support.office.com/en-us/article/date-function-e36c0c8c-4104-49da-ab83-82328b832349" target="_blank">date</a> function</li>
+						<li>Calculate the historical days for each of the working capital accounts (i.e., days receivable, days inventory, and days payable)</li>
+						<li>Forecast the working capital balances for each account into the future</li>
+						<li>Calculate the change in working capital, which will effect the cash flow statement</li>
+					</ol>
+					<p><strong>Topics:</strong> Timing differences between accounting and government rules, cash taxes vs. deferred taxes, deferred tax liabilities, working capital</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="part-5">
+				<header>Debt, Interest and Shareholders' Equity</header>
+				<article>
+					<ol>
+						<li>Create the schedules to forecast the company's debts, interest expense, and shareholders' equity</li>
+						<li>Segment each debt on the schedule which will appear on the balance sheet</li>
+						<li>Segment both short-term and long-term debt</li>
+						<li>Include a section for bank debts (i.e., revolving credit facility)</li>
+						<li>Calculate interest expense</li>
+						<li>Segment each equity item on the equity schedule that will appear on the balance sheet. Including sections for common shares, preferred shares, and retained earnings.</li>
+						<li>Forecast any dividends or preferreds if applicable and include these items on the cash flow statement</li>
+						<li>Include a section to calculate shares outstanding which accounts for any share issuance or share repurchases</li>
+					</ol>
+					<p><strong>Topics:</strong> Debt types, fixed and variable interest rates, equity types, dividends, share dilution and repurchases</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="part-6">
+				<header>Financial Statements</header>
+				<article>
+					<ol>
+						<li>Forecast the financial statements</li>
+						<li>Integrate all the appropriate items from the schedules created</li>
+						<li>Decide whether or not to include circularity</li>
+					</ol>
+					<p><strong>Topics:</strong> Financial statement composition, model circularity</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="part-7">
+				<header>Summary Page, Formatting, Presentation and Speed</header>
+				<article>
+					<ol>
+						<li>Create a summary page to output key statistics and format for presentation</li>
+						<li>Create a summary table which includes output for the base case, best case, and worst case scenarios</li>
+						<li>Changes made to the model should automatically update the summary page</li>
+						<li>Add headers and footers onto each page</li>
+						<li>Setup print ranges</li>
+					</ol>
+					<p><strong>Topics:</strong> Formatting</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="part-8">
+				<header>Model Troubleshooting, Fixing Erros and Avoiding Pitfalls</header>
+				<article>
+					<ol>
+						<li>Resolve any errors by stress testing the model</li>
+						<li>Review key skills and audit a well-designed financial model for comparison</li>
+						<li>Understand how to find errors that will prevent the balance sheet from balancing</li>
+						<li>Review best-practices and ensure the model was built effectively</li>
+					</ol>
+					<p><strong>Topics:</strong> Model auditing</p>
+				</article>
+			</section>
+
+			<section class="main-section" id="resources">
+				<header>Suggested Readings</header>
+				<article>
+					 <ul>
+					 	<li><a href="https://www.amazon.ca/Building-Financial-Models-John-Tjia/dp/0071608893/ref=sr_1_2?ie=UTF8&qid=1547468744&sr=8-2&keywords=building+financial+models" target="_blank">Building Financial Models</a></li>
+					 	<li><a href="https://www.amttraining.com/bookstore/crunch-the-numbers/crunch-the-numbers-accounting-fundamentals/" target="_blank">Crunch The Numbers - Accounting Fundamentals</a></li>
+					 	<li><a href="https://www.amttraining.com/bookstore/crunch-the-numbers/crunch-the-numbers-modeling/" target="_blank">Crunch The Numbers - Modeling</a></li>
+					 	<li><a href="https://www.wiley.com/en-ad/Excel+2019+Bible-p-9781119514763" target="_blank">Excel 2019 Bible</a></li>
+					 	<li><a href="https://www.amazon.ca/Bundle-Accounting-Introduction-CengageNOW-2009-05-14/dp/B01FIXGXMW/ref=sr_1_17?s=books&ie=UTF8&qid=1547469041&sr=1-17" target="_blank">Financial Accounting: An Introduction to Concepts, Methods, and Uses</a></li>
+					 	<li><a href="https://www.amazon.ca/Financial-Managerial-Accounting-Carl-Warren/dp/1337119202" target="_blank">Financial and Managerial Accounting</a></li>
+					 	<li><a href="https://www.amazon.ca/Financial-Modeling-Valuation-Practical-Investment/dp/1118558766" target="_blank">Financial Modeling and Valuation: A Practical Guide to Investment Banking and Private Equity</a></li>
+					 	<li><a href="https://www.amazon.ca/Financial-Modeling-Dummies-Danielle-Fairhurst/dp/1119357543/ref=asc_df_1119357543/?tag=googleshopc0c-20&linkCode=df0&hvadid=293033033224&hvpos=1o1&hvnetw=g&hvrand=9237843042944385406&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9000898&hvtargid=pla-331659075808&psc=1" target="_blank">Financial Modeling in Excel For Dummies</a></li>
+					 	<li><a href="https://www.amazon.ca/Financial-Statements-Rev-Thomas-Ittelson/dp/1601630239/ref=sr_1_1?s=books&ie=UTF8&qid=1547469395&sr=1-1&keywords=financial+statements+a+step+by+step" target="_blank">Financial Statements: A Step-by-Step Guide to Understanding and Creating Financial Reports</a></li>
+					 	<li><a href="https://www.amazon.ca/Using-Excel-Business-Analysis-Fundamentals/dp/1119062462/ref=sr_1_1?s=books&ie=UTF8&qid=1547469481&sr=1-1&keywords=using+excel+for+business+analysis" target="_blank">Using Excel for Business Analysis: A Guide to Financial Modelling Fundamentals</a></li>
+					 </ul>
+				</article>
+			</section>
+		</main>
+	</body>
+</html>
