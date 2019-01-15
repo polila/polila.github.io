@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Patrick Olila</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" type="image/png" href="../../img/p.png">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
+
+	<body>
+
+		<div class="container">
+
+			<div class="header">
+				<h1 id="title">Statistical Bias: Survey Sampling</h1>
+				
+				<div id="contact">
+					<ul>
+						<li><a href="https://github.com/polila" target="_blank"><i class="fab fa-github"></i></a></li>
+						<li><a href="https://ca.linkedin.com/in/patrick-olila-b29518144" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+						<li><a href="https://codepen.io/polila/#" target="_blank"><i class="fab fa-codepen"></i></a></li>
+						<li><a href="https://stackexchange.com/users/11590631/patrick-olila?tab=accounts" target="_blank"><i class="fab fa-stack-overflow"></i></a></li>
+					</ul>
+				</div>
+				
+				<hr>
+			</div>
+
+			<div id="form-outer">
+					
+				<form id="survey-form" action="mailto:polila@ryerson.ca" method="post" enctype="text/plain">
+
+					<div id="description">
+						<p>In <a href="https://en.wikipedia.org/wiki/Survey_sampling" target="_blank">survey sampling</a>, <strong>bias</strong> is the tendency of a sample statistic to systematically over- or under-estimate a <a href="https://en.wikipedia.org/wiki/Parameter#Statistics_and_econometrics" target="_blank"> population parameter</a> which cannot be accounted for by statistical methods (i.e., <a href="https://en.wikipedia.org/wiki/Normal_distribution" target="_blank"><em>normality</em></a>) since the data is inherently <a href="https://en.wikipedia.org/wiki/Skewness" target="_blank">skewed</a></p>
+					</div>
+
+					<div id="description">
+						<h3>Selection Bias</h3>
+						<p><strong><em>Undercoverage:</em> </strong>If this survey form was the only means of obtaining data, then people who do not have access to internet are inadequately represented</p>
+						<p><strong><em>Nonresponse bias:</em> </strong>If mail was distributed to account for people without access to internet, then respondents can differ in meaningful ways since it generally takes more effort to mail than it does to click submit</p>
+						<p><strong><em>Voluntary response bias:</em> </strong>If this survey was mailed to a subscriber list, the response from the list would not be indicative for critical feedback</p>
+					</div>
+
+					<div id="description">
+
+						<h3>Response bias</h3>
+
+						<p><strong><em><a href="https://en.wikipedia.org/wiki/Suggestive_question" target="_blank">Leading questions:</em></a></strong> A question phrased for a desired answer</p>
+
+						<div class="row">
+							<div class="label">
+								<label id="name-label" for="leading-1">How many basis points will AAPL stock go "up"?</label>
+							</div>
+							<div class="input">
+								<input autofocus="autofocus" type="text" name="leading-1" id="leading-1" class="input-field" placeholder="(i.e., 1000)" required="required">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="label">
+								<label id="name-label" for="leading-2">Why long AAPL?</label>
+							</div>
+							<div class="input">
+								<select id="dropdown" name="leading-2" class="dropdown">
+									<option disabled="disabled" value="value">Select an option</option>
+									<option value="overvalued">Undervalued</option>
+									<option value="cf">Strong cash flow</option>
+									<option value="roa">High ROA</option>
+									<option value="growth">Consistent growth</option>
+									<option value="pe">Low P/E</option>
+									<option value="pb">Low Price/Book</option>
+									<option value="overvalued">Warren Buffet is long AAPL</option>
+									<option value="all">All of the above</option>
+								</select>
+							</div>
+						</div>
+
+						<p><strong><em><a href="https://en.wikipedia.org/wiki/Social_desirability_bias" target="_blank">Social desirability:</a></em></strong> Responses will tend to skew towards social norms when questions are confidential</p>
+
+						<div class="row">
+							<div class="label">
+								<label id="name-label" for="leading-1">Do you agree to the terms of service?</label>
+							</div>
+							<div class="input">
+								<ul style="list-style: none;">
+									<li class="radio"><label><input name="radio-bttn" value="1" type="radio" class="terms">I agree</label></li>
+									<li class="radio"><label><input name="radio-bttn" value="2" type="radio" class="terms">I disagree</label></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="label">
+								<label id="name-label" for="leading-1">Have you ever been convicted of a crime?</label>
+							</div>
+							<div class="input">
+								<ul style="list-style: none;">
+									<li class="checkbox"><label><input name="check-bttn" value="1" type="checkbox" class="crime">Yes</label></li>
+									<li class="checkbox"><label><input name="check-bttn" value="2" type="checkbox" class="crime">No</label></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+
+					<div id="description">
+
+						<p>Can you think of other examples of bias? For further reading, refer to:</p>
+						<ul>
+							<li><a href="https://en.wikipedia.org/wiki/Observer-expectancy_effect" target="_blank">Observer bias</a></li>
+							<li><a href="https://en.wikipedia.org/wiki/Survivorship_bias" target="_blank">Survivorship bias</a></li>
+							<li><a href="" target="_blank">Cause-effect bias (<em>post hoc ergo propter hoc</em>)</a></li>
+							<li><a href="https://en.wikipedia.org/wiki/Funding_bias" target="_blank">Funding bias</a></li>
+							<li><a href="https://en.wikipedia.org/wiki/List_of_cognitive_biases" target="_blank">Cognitive bias</a></li>
+						</ul>
+
+						<div class="row">
+							<div class="label">
+								<label for="comments">*Comments:</label>
+							</div>
+							<div class="input">
+								<textarea name="comments" id="comments"class="input-field" placeholder="Enter your comments here..." style="height:100px;resize:vertical;"></textarea>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="label">
+								<label id="name-label" for="name">*Name:</label>
+							</div>
+							<div class="input">
+								<input autofocus="autofocus" type="text" name="name" id="name" class="input-field" placeholder="Enter your name" required="required">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="label">
+								<label id="email-label" for="email">*Email:</label>
+							</div>
+							<div class="input">
+								<input type="email" name="email" id="email" class="input-field" placeholder="Enter your email" required="required">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="label">
+								<label id="number-label" for="age">*Age:</label>
+							</div>
+							<div class="input">
+								<input type="number" name="age" id="number" min="1" max="125" class="input-field" placeholder="Enter your age">
+							</div>
+						</div>
+					</div>
+
+					<center>
+						<button id="submit" type="submit">Submit</button>
+					</center>
+
+				</form>
+			</div>
+		</div>
+
+	</body>
+</html>

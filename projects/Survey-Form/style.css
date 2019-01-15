@@ -1,0 +1,130 @@
+body, html {
+	background-color: #323232;
+	color: rgb(203, 208, 208);
+	font-family: 'Open Sans',Arial,sans-serif;
+	min-width: 320px;
+	text-align: center;
+	padding: 5px;
+}
+
+.container {
+	display: block;
+	width: 100%;
+	background-color: rgb(0, 0, 0, 0.5);
+	padding: 2px;
+	text-align: left;
+}
+
+.header {
+	text-align: center;
+	padding: 5px;
+}
+
+.header li {
+	display: inline-block;
+	text-decoration: none;
+}
+
+#contact a {
+	font-size: 36px;
+	letter-spacing: 12px;
+	color: #fff;
+}
+
+#form-outer {
+	background-color: black;
+	padding: 5px;
+  	margin: 0 auto;
+  	border-radius: 4px;
+  	width: 75%;
+  	max-width: 900px;
+  	padding: 10px;
+  	padding-top: 20px;
+}
+
+#description {
+	text-align: left;
+	padding-left: 5px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.label {
+	display: inline-block;
+	text-align: right;
+	width: 40%;
+	padding: 5px;
+	vertical-align: top;
+	margin-top: 10px; 
+}
+
+.input {
+	display: inline-block;
+	text-align: left;
+	width: 50%;
+	vertical-align: middle;
+}
+
+.input-field {
+	height: 20px;
+	width: 280px;
+	padding: 5px;
+	margin: 10px;
+	border: 1px solid #c0c0c0;
+	border-radius: 2px;
+}
+
+.dropdown {
+	height: 35px;
+	width: 180px;
+	padding: 5px;
+	margin: 10px;
+	margin-top: 15px;
+	border: 1px solid #c0c0c0;
+	border-radius: 2px;
+}
+
+.radio, .checkbox {
+	position: relative;
+	display: block;
+}
+
+@media screen and (max-width: 833px) {
+  .input-field {
+    width: 80%;
+  }
+  select {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .label {
+    width: 100%;
+    text-align: left;
+  }
+  .input {
+    width: 80%;
+    float: left;
+  }
+  .input-field {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+}
+
+#submit {
+  background-color: #59ace0;
+  border-radius: 4px;
+  color: white;
+  font-size: 1em;
+  height: 40px;
+  width: 96px;
+  margin: 10px;
+  border: 0px solid;
+  text-align: center;
+}
