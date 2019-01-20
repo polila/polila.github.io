@@ -42,7 +42,7 @@ const getVenues = async () => {
     if (response.ok) {
       
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
+
       const venues = jsonResponse.response.groups[0].items.map((item) => item.venue);
 
       var randomArr = [];
