@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Patrick Olila</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/png" href="../../img/p.png">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<body>
+	<nav id="navbar">
+		<header>
+			<a href="#intro" rel="internal"><i class="fab fa-js" style="font-size: 42px;"></i> <em>Recursion</em></a>
+		</header>
+		<ul>
+			<a class="nav-link" href="#intro" rel="internal"><li>Introduction</li></a>
+			<a class="nav-link" href="#one" rel="internal"><li>Sum All Numbers in a Range</li></a>
+			<a class="nav-link" href="#two" rel="internal"><li>Diff Two Arrays</li></a>
+			<a class="nav-link" href="#three" rel="internal"><li>Seek and Destroy</li></a>
+			<a class="nav-link" href="#four" rel="internal"><li>Wherefore art thou</li></a>
+			<a class="nav-link" href="#five" rel="internal"><li>Spinal Tap Case</li></a>
+			<a class="nav-link" href="#six" rel="internal"><li>Pig Latin</li></a>
+			<a class="nav-link" href="#seven" rel="internal"><li>Search and Replace</li></a>
+			<a class="nav-link" href="#eight" rel="internal"><li>DNA Pairing</li></a>
+			<a class="nav-link" href="#nine" rel="internal"><li>Missing letters</li></a>
+			<a class="nav-link" href="#ten" rel="internal"><li>Sorted Union</li></a>
+			<a class="nav-link" href="#eleven" rel="internal"><li>Convert HTML Entities</li></a>
+			<a class="nav-link" href="#twelve" rel="internal"><li>Sum All Odd Fibonacci Numbers</li></a>
+			<a class="nav-link" href="#thirteen" rel="internal"><li>Sum All Primes</li></a>
+			<a class="nav-link" href="#fourteen" rel="internal"><li>Smallest Common Multiple</li></a>
+			<a class="nav-link" href="#fifteen" rel="internal"><li>Drop it</li></a>
+			<a class="nav-link" href="#sixteen" rel="internal"><li>Steamroller</li></a>
+			<a class="nav-link" href="#seventeen" rel="internal"><li>Binary Agents</li></a>
+			<a class="nav-link" href="#eighteen" rel="internal"><li>Everything Be True</li></a>
+			<a class="nav-link" href="#nineteen" rel="internal"><li>Arguments Optional</li></a>
+			<a class="nav-link" href="#twenty" rel="internal"><li>Make a Person</li></a>
+			<a class="nav-link" href="#twenty-one" rel="internal"><li>Map the Debris</li></a>
+			<a class="nav-link" href="#twenty-two" rel="internal"><li>Palindrome Checker</li></a>
+			<a class="nav-link" href="#twenty-three" rel="internal"><li>Roman Numeral Converter</li></a>
+			<a class="nav-link" href="#twenty-four" rel="internal"><li>Caesars Cipher</li></a>
+			<!--
+      <a class="nav-link" href="#twenty-five" rel="internal"><li>Telephone Number Validator</li></a>-->
+			<a class="nav-link" href="#twenty-six" rel="internal"><li>Cash Register</li></a>
+			<li style="padding-top: 20px">
+				<a href="https://github.com/polila" target="_blank"><i class="fab fa-github" style="font-size: 25px; margin-right: 20px"></i></a>
+				<a href="https://ca.linkedin.com/in/patrick-olila-b29518144" target="_blank"><i class="fab fa-linkedin" style="font-size: 25px; margin-right: 20px"></i></a>
+            	<a href="https://codepen.io/polila/#" target="_blank"><i class="fab fa-codepen" style="font-size: 25px; margin-right: 20px"></i></a>
+            	<a href="https://stackexchange.com/users/11590631/patrick-olila?tab=accounts" target="_blank"><i class="fab fa-stack-overflow" style="font-size: 25px;"></i></a>
+			</li>
+		</ul>
+	</nav>
+
+	<main id="main-doc">
+
+		<section class="main-section" id="intro">
+			<header>Introduction</header>
+			<article>
+				<p><a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)" target="_blank">Recursion</a> occurs when a thing is defined in terms of itself or of its type. It is used in a variety of disciplines ranging from <a href="https://linguistics.stackexchange.com/questions/3252/what-is-recursion" target="_blank">linguistics</a> to <a href="https://plato.stanford.edu/entries/recursive-functions/" target="_blank">logic</a>. The most common application of recursion is in mathematics and computer science, where a function being defined is applied within its own definition. While this apparently defines an infinite number of instances (function values), it is often done in such a way that no loop or infinite chain of references can occur.</p>
+				<center>
+				<blockquote><em>"...To understand recursion, one must first understand recursion"</em></blockquote>
+				<blockquote><em>"...Did you mean recursion?"</em></blockquote>
+				</center>
+			</artice>
+		</section>
+
+		<section class="main-section" id="one">
+			<header>Sum All Numbers in a Range</header>
+			<article>
+				<p><strong>Explanation:</strong> Returns the sum between two numbers passed in an array.</p>
+				<code class="prettyprint lang-js">function sumAll(arr) {
+  let sum = function iter(num) {
+    if (num > arr[arr.length - 1]) {
+      return 0;
+    } else {
+      return num + iter(++num); // defer addition operation, callback function and pass incremented number (++num)
+    }
+  };
+  // iter(5) # [min, max] <=> [5, 10]
+  // (num > arr[arr.length - 1]) # false
+  // return 5 + iter(6)
+  //		.
+  //		.
+  //		.
+  // return 5 + iter(6 + iter(7 + iter(8 + iter(9 + iter(10 + iter(11))))))
+  // return 5 + iter(6 + iter(7 + iter(8 + iter(9 + iter(10 + 0)))))
+  // return 5 + iter(6 + iter(7 + iter(8 + iter(9 + 10)))))
+  // return 5 + iter(6 + iter(7 + iter(8 + 19)))
+  // return 5 + iter(6 + iter(7 + 27))
+  // return 5 + iter(6 + 34)
+  // return 5 + 40
+  // return 45
+  return sum(arr.sort(function(a,b) {
+    return a - b;
+  })[0]);
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="two">
+			<header>Diff Two Arrays</header>
+			<article>
+				<p><strong>Explanation:</strong> Returns the distinct items between two arrays.</p>
+				<code class="prettyprint lang-js">function diffArray(arr1, arr2) {
+  let n = arr1.length;
+  let k = arr2.length;
+  if (n === 0) { return arr2; }
+  if (k === 0) { return arr1; }
+  let max = function compareNumbers(a, b) { return a > b; };
+  let biggerArr = k;
+  let larger = max(n, k);
+  if (larger) { biggerArr = n; }
+  function merge(arr, indx) { // concat arrays
+    if (max(indx, biggerArr)) {
+      return arr; // return array once index exceeds length of biggest array
+    } else {
+      arr.push(arr1[indx]);
+      arr.push(arr2[indx]);
+      return merge(arr, ++indx);
+    }
+  }
+  function isDistinct(el, i, iter) { // checks for duplicates
+    if (iter === i) { // skip current index checking for
+      iter++;
+    }
+    if (iter > concatArr.length - 1) { // no duplicates
+      return true;
+    } else if (el == concatArr[iter]) { // if current index is a duplicate
+      return false;
+    } else {
+      return isDistinct(el, i, ++iter);
+    }
+  }
+  function remove(arr, indx) { // remove duplicates
+    if (indx >= concatArr.length - 2) {
+      return arr;
+    } else { // if distinct, push element
+      if (isDistinct(concatArr[indx], indx, 0)) { 
+        arr.push(concatArr[indx]);
+      } // else, continue
+      return remove(arr, ++indx);
+    }
+  }
+  const concatArr = merge([], 0); // concat arrays
+  return remove([], 0); // distinct array
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="three">
+			<header>Seek and Destroy</header>
+			<article>
+				<p><strong>Explanation:</strong> Removes all elements from the initial array that are of the same value as the arguments passed.</p>
+				<code class="prettyprint lang-js">function destroyer(arr,...args) {
+  function concat(newArr, len) { // concat args passed
+    if (len > args.length - 1) {
+      return newArr;
+    } else {
+      newArr.push(args[len]);
+      return concat(newArr, ++len);
+    }
+  }
+  function shouldReject(el, i, indx) { // check if equal to args passed
+    if (i > reject.length - 1) {
+      return false;
+    } else if (el === reject[i]) {
+      return true;
+    } else {
+      return shouldReject(el, ++i, indx);
+    }
+  }
+  function iter(indx) { // iterate gross array
+    if (indx > arr.length - 1) {
+      return arr; 
+    } else { // if equal to args, delete element
+      if (shouldReject(arr[indx], 0, indx)) {
+        delete arr[indx];
+      } // else, continue
+      return iter(++indx);
+    }
+  }
+  function remove(tempArr, newArr, indx) { // filter array
+    if (indx > tempArr.length - 1) {
+      return newArr;
+    } else {
+      if (tempArr[indx] != undefined) {
+        newArr.push(tempArr[indx]);
+      }
+      return remove(tempArr, newArr, ++indx);
+    }
+  }
+  let reject = concat([], 0); // args array
+  let temp = iter(0); // array, net of args
+  if (temp.length === 0) {
+    return [];
+  }
+  return remove(temp, [], 0); // array, net of undefined
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="four">
+			<header>Wherefore art thou</header>
+			<article>
+				<p><strong>Explanation:</strong> Looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument).</p>
+				<code class="prettyprint lang-js">function whatIsInAName(collection, source) {
+  let src = Object.values(source); // array of source keys from source object
+  let srcKeys = Object.keys(source); // array of source values from source object
+  function counter(k, collectionKey, collectionObj, srcIndx) { // checks if the collection object passed matches any source objects
+    if (srcIndx > src.length - 1) {
+      return k; // return count of matches, 0 in this case
+    } else {
+      if (collectionObj[collectionKey] === src[srcIndx] && srcKeys[srcIndx] === collectionKey) {
+        return ++k; // found match, return 1;
+      }// else, keep iterating
+      return counter(k, collectionKey, collectionObj, ++srcIndx);
+    }
+  }
+  function iter(arr, count, i, j) { // iterate through object collection
+    if (i > collection.length - 1) {
+      return arr;
+    } else {
+    // Had to use a loop, no alternative: // https://stackoverflow.com/questions/7866275/access-non-numeric-object-properties-by-index
+    // On the other hand, it still meets the conditions of recursion: https://softwareengineering.stackexchange.com/questions/171529/can-a-recursive-function-have-iterations-loops/171531
+      for (let key in collection[i]) {
+        count += counter(0, key ,collection[i], j); // check if collection object matches any source objects
+      }
+      if (count >= src.length) { // push objects from collection array that have >= identical objects from source object
+        arr.push(collection[i]);
+      } // continue iterating through collection array (++i), reset count and source index
+      return iter(arr, 0, ++i, 0);
+    }
+  }
+  return iter([], 0, 0, 0);
+}
+</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="five">
+			<header>Spinal Tap Case</header>
+			<article>
+				<p><strong>Explanation:</strong> Converts a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.</p>
+				<code class="prettyprint lang-js">function spinalCase(str) {
+  function underscored(strng, i) { // convert characters that are (/\W|\_/g) to underscore
+    if (i >= str.length - 1) {
+      return strng + str[str.length - 1]; // append last char that was skipped
+    } else {
+      if (/\W|\_/g.test(str[i])) { // skip character if character is a subset of (/\W|\_/g)
+        ++i;
+      } // checks if char is lowercase and the char at i + 1 is uppercase, if so append "_" (Note: skips checking last char)
+      if (str[i] === str[i].toLowerCase() && str[i + 1] === str[i + 1].toUpperCase()) {
+        strng = strng + str[i] + "_";
+      } else { // otherwise, append without "_"
+        strng = strng + str[i];
+      }
+      return underscored(strng, ++i);
+    }
+  }
+  function spinalfy(tempStr, strng, j) { // checks if char is (/\_/g) to replace it with "-"
+    if (j > tempStr.length - 1) {
+      return strng;
+    } else {
+      if (/\_/g.test(tempStr[j])) { // append empty string with "-" if temp string is "_"
+        strng += "-";
+      } else { // Otherwise, lowercase temp string and append to new string
+        strng += tempStr[j].toLowerCase();
+      }
+      return spinalfy(tempStr, strng, ++j);
+    }
+  }
+  let temp = underscored("", 0); // string with underscore instead of whitespace
+  return spinalfy(temp, "", 0);
+}
+					
+</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="six">
+			<header>Pig Latin</header>
+			<article>
+				<p><strong>Explanation:</strong> Translates the provided string to <a href="https://en.wikipedia.org/wiki/Pig_Latin" target="_blank">pig latin</a>. Pig Latin takes the first <a href="https://en.m.wikipedia.org/wiki/Consonant" target="_blank">consonant</a> (or consonant cluster) of an English word, moves it to the end of the word and suffixes an "ay". If a word begins with a vowel you just add "way" to the end. This assumes that input strings are in english words and in all lowercase..</p>
+				<code class="prettyprint lang-js">function translatePigLatin(str) {
+  const vowels = ["a", "e", "i", "o", "u"]; // vowel array, since iterating/typing 5 letters is easier than 21 letters (consonants)
+  function startCons(letter, i) { // checks if the letter is a vowel, if a letter is not a vowel then it is a consonant, and vice-versa
+    if (i > vowels.length - 1) {
+      return true;
+    } else {
+      if (letter === vowels[i]) { // return false if the letter is a vowel
+        return false;
+      } // otherwise, continue iterating through vowels
+      return startCons(letter, ++i);
+    }
+  }
+  if (!startCons(str[0], 0)) { // if the first letter is a vowel, return vowel + "way"
+    return str + "way";
+  } else {
+    function concatCons(strng, i) { // appends string until the letter is a vowel 
+      if (i > str.length - 1 || !startCons(str[i], 0)) {
+        return strng;
+      } else {
+        strng += str[i];
+        return concatCons(strng, ++i);
+      }
+    }
+    function sliceStr(strng, i) { // appends string starting at index where appending consonant stopped appending
+      if (i > str.length - 1) {
+        return strng;
+      } else {
+        strng += str[i];
+        return sliceStr(strng, ++i);
+      }
+    }
+    let constnt = concatCons("", 0); // consonant half
+    let slice = sliceStr("", constnt.length); // sliced half
+    return slice + constnt + "ay"; // pig latin
+  }
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="seven">
+			<header>Search and Replace</header>
+			<article>
+				<p><strong>Explanation:</strong> Performs a search and replaces the sentences using the arguments provided and returns the new sentence. First argument is the sentence to perform the search and replace on. Second argument is the word that you will be replacing (before). Third argument is what will be replacing the second argument with (after). (<strong>Note:</strong> Preserves the case of the first character in the original word. For example if the word "Book" is to be replaced with the word "dog", it should be replaced as "Dog"</p>
+				<code class="prettyprint lang-js">function myReplace(str, before, after) {
+  function toArr(arr, i, strng) { // converts passed string to array
+    if (i > strng.length - 1) {
+      return arr;
+    } else {
+      if (/\W/g.test(strng[i])) { // replace non-word characters with "-"
+        arr.push("-");
+      } else {
+        arr.push(strng[i]); // append letters to string
+      }
+      return toArr(arr, ++i, strng);
+    }
+  }
+  function toStringArr(newStr, arr, i) { // converts passed array to string
+    if (i > arr.length - 1) {
+      return newStr;
+    } else {
+      if (arr[i] === undefined) {
+        i++;
+      } // if the appended array is at the last letter and the remaining indexes are undefined
+      if (arr[i] === undefined && i >= (str.length - before.length + after.length + 1)) {
+        return toStringArr(newStr, arr, ++i).trim();
+      }
+      if (/\W/g.test(arr[i])) {
+        newStr += " ";
+      } else {
+        newStr += arr[i];
+      }
+      return toStringArr(newStr, arr, ++i).trim();
+    }
+  }
+  function replaceArr(arr, i) { // appends array with replacement arguement
+    if (i > arr.length - 1) {
+      return arr;
+    } else {
+      if (arr[i] === before[0]) { // check if letter is equal to first lettter of letter to be replaced (before)
+        if (findIndx(i, 0, 0)) { // iterate through word letter by letter to check if the word is the word to be replaced
+          function erase(newArr, j, k) { // if true, deletes the word letter by letter
+            if (newArr[j] === "-" || k > before.length - 1) {
+              return newArr;
+            } else {
+              delete newArr[j];
+              return erase(newArr, ++j, ++k); // iterate through the word letter by letter
+            }
+          }
+          function insert(newArr, j, k) { // append the replacement word letter by letter where the previous word (before) was deleted
+            if (newArr[j] === "-" || k > after.length - 1) {
+              return newArr;
+            } else {
+              newArr[j] = after[k];
+              return insert(newArr, ++j, ++k);
+            }
+          }
+          let erased = erase(arr, i, 0); // array with previous word (before) deleted
+          let replaced = insert(erased, i, 0); // array with new word (after) appended
+          if (before[0] == before[0].toUpperCase()) {
+            replaced[i] = after[0].toUpperCase();
+          }
+          return toStringArr("", replaced, 0); // return replaced array as string
+        }
+      } 
+      let replaced = replaceArr(arr, ++i); // if a string is returned, it stops iteration since "replaced" is returned
+      return replaced;
+    }
+  }
+  function findIndx(strIndx, beforeIndx, wordCount) { // searches the index for replacement
+    if (wordCount > before.length - 1 || str[strIndx] == "-") {
+      return true;
+    } else {
+      if (str[strIndx].toLowerCase() != before[beforeIndx].toLowerCase()) {
+        return false;
+      } else {
+        return findIndx(++strIndx, ++beforeIndx, ++wordCount);
+      }
+    }
+  }
+  let strArr = toArr([], 0, str); // string converted to array
+  return replaceArr(strArr, 0); // array converted to string with replacement
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="eight">
+			<header>DNA Pairing</header>
+			<article>
+				<p><strong>Explanation:</strong> Returns the provided character as the first element in each array and matches the missing element to the provided character by taking each character, getting its pair and returning the results as a 2d array.<a href="https://en.wikipedia.org/wiki/Base_pair" target="_blank"> Base pairs</a> are a pair of AT and CG. The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.</p>
+				<code class="prettyprint lang-js">function pairElement(str) {
+  let pairs = { // create base pairs object so they can be accessed by their corresponding pair
+    "A": "T", // (key: value)
+    "T": "A",
+    "C": "G",
+    "G": "C"
+  };
+  function toArr(arr, i, strng) { // converts string to array
+    if (i > strng.length - 1) {
+      return arr;
+    } else {
+      arr.push(strng[i]);
+      return toArr(arr, ++i, strng);
+    }
+  }
+  function pairIter(newArr, arr, i) { // iterates through str array and returns new array with corresponding pairs
+    if (i > arr.length - 1) {
+      return newArr;
+    } else {
+      let temp = []; // create 1-D array
+      temp.push(arr[i]); // push value of str array at index i (key)
+      temp.push(pairs[arr[i]]); // push corresponding pair of str value at index i (value)
+      newArr.push(temp); // push 1-D array to empty array (2-D array)
+      return pairIter(newArr, arr, ++i);
+    }
+  }
+  return pairIter([], toArr([], 0, str), 0);
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="nine">
+			<header>Missing letters</header>
+			<article>
+				<p><strong>Explanation:</strong> Finds the missing letter in the passed letter range and returns it. Returns undefined if all letters are present in the range.</p>
+				<code class="prettyprint lang-js">function fearNotLetter(str) {
+  function toArr(arr, i, strng) { // convert str to array
+    if (i > strng.length) {
+      return arr;
+    } else {
+      arr.push(strng[i]);
+      return toArr(arr, ++i, strng);
+    }
+  }
+  function sort(arr, i) { // sort array from lest to greatest <=> [min,...,max]
+    if (i >= arr.length - 1) {
+      return arr;
+    } else {
+      function iter(tempArr, j) { // iterate through items one by one check if element at i + 1 is greater
+        if (j >= tempArr.length - 1) { // return array if counter is >= length of array
+          return tempArr;
+        } else {
+          if (tempArr[j] > tempArr[j + 1]) { // if greater, switch
+            let temp = tempArr[j + 1];
+            tempArr[j + 1] = tempArr[j];
+            tempArr[j] = temp;
+          }
+          return iter(tempArr, ++j); // else, keep iterating
+        }
+      }
+      arr = iter(arr, 0); // sort array
+      // 	0:	[5, 4, 3, 1]
+      // 	.	[4, 5, 3, 1]
+      // 	.	[4, 3, 5, 1]
+      // 	j=3	[4, 3, 1, 5]
+      // return([4, 3, 1, 5], ++i) 
+      return sort(arr, ++i); // pass sorted array, keep iterating
+    }
+  }
+  function iterate(arr, i) { // iterate through sorted array
+    if (i >= arr.length - 2) {
+      return undefined // return undefined if no missing gaps between letters
+    } else {
+      if (1 < arr[i + 1].charCodeAt(0) - arr[i].charCodeAt(0)) { // if letter at i+1 (greater) - at i (less) > 1 
+        return String.fromCharCode(arr[i + 1].charCodeAt(0) - 1); // then return the missing letter to complete the gap (letter[i + 1] - 1)
+      }
+      return iterate(arr, ++i); // keep iterating through array
+    }
+  }
+  return iterate(sort(toArr([], 0, str), 0), 0); // (i.e., iterate(sort(toArr([], 0, "abce"), 0), 0))
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="ten">
+			<header>Sorted Union</header>
+			<article>
+				<p><strong>Explanation:</strong> Takes two or more arrays and returns a new array of unique values in the order of the original provided arrays. All values present from all arrays are included in their original order, but with no duplicates in the final array. The unique numbers are sorted by their original order, but the final array is not sorted in numerical order.</p>
+				<code class="prettyprint lang-js">function uniteUnique(...arr) { // S[0] + S[i] + S[i + 1] + . . . + S[n] | x[i] != x[o] 
+  function subSet(s1, i, j) { // Returns the first array with the proceeding arrays distinct elements
+    if (j > arr[i].length - 1) {
+      return s1; // return arr[0] + arr[i] | x[0] != {x[i], x[i + 1], . . . , x[k]}
+    } else {
+      let isSubSet = false;
+      let k = 0;
+      while (k < s1.length) { // iterate through first array to check if any elements match the array being compared to
+        if (s1[k] === arr[i][j]) { // if match, then the element is a subset (true)
+          isSubSet = true;
+          break;
+        }
+        k++; // otherwise (false), keep iterating through first array (k++)
+      }
+      if (!isSubSet) { // if the element is not a subset, then push (not false)
+        s1.push(arr[i][j]);
+      }
+      return subSet(s1, i, ++j); // keep iterating through array (++j)
+    }
+  }
+  function appendSet(set, i) { // returns the first array with the other arrays (...arr - arr[0]) distinct elements
+    if (i > arr.length - 1) {
+      return set;
+    } else {
+      set = subSet(set, i, 0); 
+      return appendSet(set, ++i);
+    }
+  }
+  let s1 = arr[0]; // first array
+  return appendSet(s1, 1); // start count at 1 (...arr - arr[0])
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="eleven">
+			<header>Convert HTML Entities</header>
+			<article>
+				<p><strong>Explanation:</strong> Converts the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.</p>
+				<code class="prettyprint lang-js">function convertHTML(str) {
+  // https://www.rapidtables.com/web/html/html-codes.html
+  function convert(char) {
+    switch(char) {
+      case "&":
+        return char + "amp;";
+      case "<":
+        return "&" + "lt;";
+      case ">": 
+        return "&" + "gt;";
+      case "\"":
+        return "&" + "quot;";
+      case "\'":
+        return "&" + "apos;";
+      default:
+        return char;
+    }
+  }
+  function toHTML(arr, i) {
+    if (i > arr.length - 1) {
+      return "";
+    } else {
+      let strHTML = convert(arr[i]);
+      return strHTML + toHTML(arr, ++i);
+    }
+  }
+  return toHTML(str.split(""), 0);
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="twelve">
+			<header>Sum All Odd Fibonacci Numbers</header>
+			<article>
+				<p><strong>Explanation:</strong> Returns the sum of all odd <a href="https://en.wikipedia.org/wiki/Fibonacci_number" target="_blank">Fibonacci numbers</a> that are less than or equal to the number passed. The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two previous numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.</p>
+				<p><em>Relevant links:</em></p>
+				<ul>
+					<li><a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.2" target="_blank">Fibonacci numbers (Tree Recursion)</a></li>
+					<li><a href="https://artofproblemsolving.com/wiki/index.php/Fibonacci_sequence" target="_blank">Fibonacci sequence</a></li>
+				</ul>
+				<code class="prettyprint lang-js">function sumFibs(num) { // linear iterative
+  function iter(sum,f1, f2) { // iterate through the fibonacci numbers less than or equal to the number passed (num)
+    if (f2 > num) { // if the fibonacci number is > than num, return sum
+      return sum;
+    } else {
+      if (f2 % 2 != 0) { // if the fibonacci number is not even, add to sum
+        sum += f2;
+      }
+      return iter(sum, f2, f1 + f2); // else, transpose iteration f1 -> f2, f2 -> f1 + f2 
+    }
+  }
+  return iter(0, 0, 1);
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="thirteen">
+			<header>Sum All Primes</header>
+			<article>
+				<p><strong>Explanation:</strong> Sums the prime numbers up to and including the provided number. A prime number is defined as a number greater than one and having only two divisors, one and itself. For example, 2 is a prime number because it's only divisible by one and two.</p>
+				<p><em>Relevant links:</em></p>
+				<ul>
+					<li><a href="https://artofproblemsolving.com/wiki/index.php/Prime_number" target="_blank">Prime number</a></li>
+					<li><a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.6" target="_blank">Primality</a></li>
+				</ul>
+				<code class="prettyprint lang-js">function sumPrimes(num) {
+  function prime(num) { // tests the number (n) for divisibility by successive integers starting with 2
+    function divisor(d) { // if d is a divisor of n, then so is n/d. But d and n/d canno't both be greater than sqrt(n)
+      if (d**2 > num) { // if n is not prime, it must have a divisor <= sqrt(num)
+        return num;
+      } else if (num % d == 0) {
+        return d;
+      } else {
+        return divisor(++d);
+      }
+    }
+    return num == divisor(2); // start prime iterator at 2
+  }
+  function iter(i, sum) { // iterate through range [0,num] <=> [0,1,2,...,i <= num]
+    if (i > num) {
+      return sum;
+    } else {
+      if (prime(i)) { // if the number (i) is prime, then add to sum
+        sum = sum + i;
+      }
+      return iter(++i, sum);
+    }
+  }
+  return iter(2, 0); // start range at 2, since every integer is divisible by 1 and dividing by 0 is not defined. Primes have 2 divisors, 1 however only has 1...
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="fourteen">
+			<header>Smallest Common Multiple</header>
+			<article>
+				<p><strong>Explanation:</strong> Finds the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between the parameters. The range will be an array of two numbers that will not necessarily be in numerical order.</p>
+				<p><em>Relevant links:</em></p>
+				<ul>
+					<li><a href="https://artofproblemsolving.com/wiki/index.php/Prime_factorization" target="_blank">Prime factorization</a></li>
+					<li><a href="https://artofproblemsolving.com/wiki/index.php/Least_common_multiple" target="_blank">Least common multiple</a></li>
+					<li><a href="https://artofproblemsolving.com/wiki/index.php/Category:Number_theory" target="_blank">Number theory</a></li>
+				</ul>
+				<code class="prettyprint lang-js">function smallestCommons(arr) { // uses prime factorization method
+  function prime(num) { // checks for primality
+    function divisor(d) {  
+      if (d**2 > num) {
+        return num;
+      } else if (num % d == 0) {
+        return d;
+      } else {
+        return divisor(++d);
+      }
+    }
+    return num == divisor(2);
+  }
+  function primeArr(list, count) { // generate primes less than or equal to max (arr[1])
+    if (count > arr[1]) {
+      return list;
+    } else {
+      if (prime(count)) {
+        list.push(count);
+      }
+      return primeArr(list, ++count);
+    }
+  }
+  arr.sort(function(a, b) { // sort the two integers passed from least to greatest ([min,max])
+    return a - b;
+  });
+  let primes = primeArr([], 2); // array of prime numbers less than or equal to max integer (arr[1])
+  let factors = {}; // empty object to pass numbers 
+  for (let i = arr[0]; i <= arr[1]; i++) { // iterate through the numbers range ([min, min + 1,...,max] <=> [arr[0],arr[1]])
+    let primeFactors = {}; // empty object to pass the numbers prime divisors and exponents
+    for (let j = 0; j < primes.length; j++) { // iterate through prime numbers array
+      if (i % primes[j] == 0) { // checks if the prime number is a factor 
+        let temp = i; // for reference for the number to factor
+        let count = 1; // keep track of exponents
+        while (temp >= 1) { // keep dividing until the number is greater than or equal to 1
+          temp = Math.round(temp / primes[j]);
+          if (temp % primes[j] !== 0) { // break if the number canno't be divided evenly by the prime number anymore
+            break;
+          }
+          count++;
+        } // prime factors object (primeFactors{})
+        Object.defineProperty(primeFactors, primes[j], { // add the prime number (prime[j]) as an attribute to reference its exponents for the number 
+          value: count, // (i.e., if number (i) is 10 and the prime factor is 2 then primeFactors[2] = 3, since 2**y <= 10 | y <= 3)  
+          writable: true,
+          enumerable: true,
+          configurable: true
+        });
+      }
+    } // numbers object (factors{})
+    Object.defineProperty(factors, i, { // add the number (i) as an attribute to reference its prime object which refers to how many times the prime object can factor the number  
+      value: primeFactors, // (i.e., factors[10][primefactors[2]] = 3 because  2**y <= 10 | y <= 3)
+      writable: true,
+      enumerable: true,
+      configurable: true
+    });
+  }
+  let divisors = []; // divisors.length === exp.length, easier to access the values when 1-D array
+  let exp = [];
+  for (let nums in factors) { // numbers range
+    for (let primeDivs in factors[nums]) { // prime divisors (primeFacts), exponents factors[nums][primeDivs]
+      divisors.push(primeDivs);
+      exp.push(factors[nums][primeDivs]);
+    }
+  }
+  let product = 1;
+  for (let i = 0; i < primes.length; i++) {
+    let primeNum = primes[i];
+    let maxExp = 0;
+    for (let j = 0; j < divisors.length; j++) {
+      if (primeNum == divisors[j] && maxExp < exp[j]) { // For each prime number which divides any of the numbers (arr[0],....,arr[1])
+        maxExp = exp[j]; // take the largest power which with which it appears, and multiply the results together
+      } // https://artofproblemsolving.com/wiki/index.php/Least_common_multiple
+    } 
+    if (maxExp > 0) {
+      product = product * (primeNum ** maxExp);
+    }
+  }
+  return product;
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="fifteen">
+			<header>Drop it</header>
+			<article>
+				<p><strong>Explanation:</strong> Iterates through and removes each element starting from the first element (the 0 index) until the function returns true when the iterated element is passed through it which returns the remaining array. Otherwise, an empty array is returned.</p>
+				<code class="prettyprint lang-js">function dropElements(arr, func) {
+  function iter(i) {
+    if (i > arr.length - 1) { // returns empty array if all callbacks are false
+      return [];
+    } else if (!func(arr[i])) { // if the callback to the function passed is false (not false), keep iterating
+      return iter(++i);
+    }  else { // slice (i, end) and return the array at the index the callback is true 
+      return arr.slice(i, arr.length);
+    }
+  }
+  return iter(0);
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="sixteen">
+			<header>Steamroller</header>
+			<article>
+				<p><strong>Explanation:</strong> Flattens (n-D -> 1-D) a nested array and accounts for varying levels of nesting.</p>
+				<code class="prettyprint lang-js">function steamrollArray(arr) {
+  let newArr = []; // array in the global scope of the function
+  function iterArr(x) {
+    if (Array.isArray(x)) { // if array passed at index i is another array (not element) 
+      for (let j = 0; j < x.length; j++) {
+        iterArr(x[j]); // function callback to itself to pass back the array 1-level deeper	
+      }
+    } else {
+      newArr.push(x); // push element to the global array (newArr)
+    }
+  }
+  function iter(i) { // iterates through the passed array (arr)
+    if (i > arr.length - 1) { // return new array (1-D) if count (i) exceeds length of array (arr) index 
+      return newArr;
+    } else {
+      iterArr(arr[i]); // pass array at index i
+      return iter(++i);
+    }
+  }
+  return iter(0); // call iter to return new array
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="seventeen">
+			<header>Binary Agents</header>
+			<article>
+				<p><strong>Explanation:</strong> Returns the English translated sentence of the passed binary string.</p>
+				<p>Relevant links:</p>
+				<ul>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode" target="_blank">MDN: .fromCharCode()</a></li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank">parseInt()</a></li>
+				</ul>
+				<code class="prettyprint lang-js">function binaryAgent(str) {
+  function iter(newStr, arr, i) { // pass str as array of words (.split(" "))
+    if (i > arr.length - 1) {
+      return ""; // return empty string after last index
+    } else {
+      newStr = String.fromCharCode(parseInt(arr[i], 2)); // parse word (arr[i]) to integer equivalent (binary), than UTF-16 units (.fromCharCode())   
+      return newStr + iter(newStr, arr, ++i); // deferred 
+    }
+  }
+  return iter("", str.split(" "), 0);
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="eighteen">
+			<header>Everything Be True</header>
+			<article>
+				<p><strong>Explanation:</strong> Checks if the predicate (second argument) is <em>truthy</em> on all elements of a collection (first argument). The predicate <strong>pre</strong> will be an object property, it will be returned true if its value is <strong>truthy</strong>. Otherwise <strong>false</strong>.</p>
+				<code class="prettyprint lang-js">function truthCheck(collection, pre) {
+  function isTrue(obj) {
+    for (let key in obj) {
+      if (!obj.hasOwnProperty(pre) || !Boolean(obj[pre])) {
+        return false; // return false if either is !false (not false)
+      }
+      return true; // else, return true
+    }
+  }
+  function iter(i) { // iterate through array
+    if (i > collection.length - 1) {
+      return true;
+    } else {
+      if(isTrue(collection[i])) { // check if object at index i is truthy
+        return iter(++i); // if so, keep iterating
+      }
+      return false; // otherwise, return false
+    }
+  }
+  return iter(0);
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="nineteen">
+			<header>Arguments Optional</header>
+			<article>
+				<p><strong>Explanation:</strong> Sums two arguments together. Returns a function that expects one argument and returns the sum if only one argument is provided. If either argument is not valid, returns undefined</p>
+				<p><em>Relevant links:</em></p>
+				<ul>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments" target="_blank">MDN: The arguments object</a></li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank">MDN: Spread syntax</a></li>
+				</ul>
+				<code class="prettyprint lang-js">function addTogether() {
+  function isNumber(arr, i) { // checks if arguments passed are numbers
+    if (i > arr.length - 1) {
+      return true;
+    } else if (typeof arr[i] !== "number") {
+      return false;
+    } else {
+      return isNumber(arr, ++i);
+    }
+  }
+  if (isNumber([...arguments], 0)) { // check if arguments meet the constraints
+    if ([...arguments].length == 1) { 
+      const first = arguments[0]; // if only 1 number is passed, store variable (first)
+      return function(second) {
+        if (typeof second !== "number") { // check second argument passed
+          return undefined;
+        } else {
+          return first + second; 
+        }
+      }
+    } else {
+      return arguments[0] + arguments[1];
+    }
+  } else {
+    return undefined; // return undefined otherwise
+  }
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="twenty">
+			<header>Make a Person</header>
+			<article>
+				<p><strong>Explanation:</strong> The methods take only strings as arguments for interaction with the object.</p>
+				<p><em>Relevant links:</em> </p>
+				<ul>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures" target="_blank">MDN: Closures</a></li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model" target="_blank">Details of the object model</a></li>
+				</ul>
+				<code class="prettyprint lang-js">var Person = function(firstAndLast) {
+  let name = firstAndLast; // parent variable (global scope)
+  this.getFullName = function() {
+    return this.getFirstName() + " " + this.getLastName();
+  };
+  this.getFirstName = function() {
+    return name.replace(/([a-z])([A-Z])/g, '$1 $2').split(" ")[0]; // format
+  };
+  this.getLastName = function() {
+    return name.replace(/([a-z])([A-Z])/g, '$1 $2').split(" ")[1]; // // format
+  };
+  this.setFirstName = function(first) {
+    name = first + this.getLastName();
+  };
+  this.setLastName = function(last) {
+     name = this.getFirstName() + last;
+  };
+  this.setFullName = function(firstAndLastIn) {
+    name = firstAndLastIn;
+  }
+};</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="twenty-one">
+			<header>Map the Debris</header>
+			<article>
+				<p><strong>Explanation:</strong> Returns a new array that transforms the elements' average altitude into their <a href="https://en.wikipedia.org/wiki/Orbital_period" target="_blank">orbital periods</a> (in seconds). </p>
+				<p><em>Relevant links:</em></p>
+				<ul>
+					<li><a href="https://en.wikipedia.org/wiki/Orbital_period" target="_blank">Orbital period</a></li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a></li>
+				</ul>
+				<code class="prettyprint lang-js">function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  let newArr = []; // array to be returned
+  function transform(avrgAlt) { // transforms average altitude to orbital orbital period equivalent
+    return Math.round(2 * Math.PI * Math.sqrt(Math.pow(earthRadius + avrgAlt, 3) / GM));
+  }
+  function pushObj(obj) {
+    let temp = {};
+    temp["name"] = obj["name"];
+    temp["orbitalPeriod"] = transform(obj["avgAlt"]); // transform
+    newArr.push(temp); // push array with object
+  }
+  function iter(i) { // iterate through array
+    if (i > arr.length - 1) {
+      return newArr;
+    } else {
+      pushObj(arr[i]); // iterate through object
+      return iter(++i);
+    }
+  }
+  return iter(0);
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="twenty-two">
+			<header>Palindrome Checker</header>
+			<article>
+				<p><strong>Explanation:</strong> Returns <strong>true</strong> if the given string is a <a href="https://wiki.artofproblemsolving.com/wiki/index.php/Palindrome" target="_blank">palindrome</a>. Otherwise, returns <strong>false</strong>. A <em>palindrome</em> is a word or sentence that is spelled the same way both forward and backward, ignoring punctuation, case, and spacing.</p>
+				<p><em>Relevant links:</em></p>
+				<ul>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace" target="_blank">MDN: .replace()</a></li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase" target="_blank">MDN: .toLowerCase()</a></li>
+					<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank">Regular Expressions</a></li>
+				</ul>
+				<p><strong><a href="../Palindrome/index.html" target="_blank">Run Code</a></strong></p>
+				<code class="prettyprint lang-js">function palindrome(str) {
+  function toArrFilter(newArr, arr, i) { // filter array
+    if (i > arr.length - 1) {
+      return newArr;
+    } else {
+      if ((/\w/g).test(arr[i]) && !(/\_/g).test(arr[i])) {
+        newArr.push(arr[i].toLowerCase());
+      }
+      return toArrFilter(newArr, arr, ++i);
+    }
+  };
+  function iterStr(arr, min, max) { // iterate through array
+    if (min >= max) {
+      return true;
+    } else {
+      if (arr[min] !== arr[max]) {
+        return false;
+      }
+      return iterStr(arr, ++min, --max);
+    }
+  }
+  const strArr = toArrFilter([], str.split(""), 0); // convert string to array
+  return iterStr(strArr, 0, strArr.length - 1);
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="twenty-three">
+			<header>Roman Numeral Converter</header>
+			<article>
+				<p><strong>Explanation:</strong> Convert a given number into a roman numeral. All <a href="https://www.mathsisfun.com/roman-numerals.html" target="_blank">roman numerals</a> answers should be provided in upper-case.</p>
+				<p><em>Relevant links:</em></p>
+				<ul>
+					<li><a href="https://nrich.maths.org/4352" target="_blank">Number Theory</a></li>
+					<li><a href="https://artofproblemsolving.com/wiki/index.php/Prime_number" target="_blank">Prime number</a></li>
+					<li><a href="#" target="_blank">Roman Numerals</a> <a href="https://artofproblemsolving.com/wiki/index.php/Roman_numerals" target="_blank">(I, </a> <a href="https://www.mathsisfun.com/roman-numerals.html" target="_blank">II,</a> <a href="https://www.knowtheromans.co.uk/Categories/SubCatagories/RomanNumerals/"> III)</a></li>
+				</ul>
+				<p><strong><a href="../Roman-Numeral/index.html" target="_blank">Run Code</a></strong></p>
+				<code class="prettyprint lang-js">// Note: 0, 4, 9, 40, 90, 400, and 900 are not prime roman numerals but were added to get around the rules of adding and subtracting roman numerals
+// store prime roman numerals in object so they can be accessed by key via decimal number
+const numbers = {
+    // ones: 1, 4, 5, 9
+    0: "",
+    1: "I",
+    4: "IV",
+    5: "V",
+    9: "IX",
+    // tens: 10, 40, 50, 90
+    10: "X",
+    40: "XL",
+    50: "L",
+    90: "XC",
+    // hundreds: 100, 400, 500, 900
+    100: "C",
+    400: "CD",
+    500: "D",
+    900: "CM",
+    // thousands: 1000
+    1000: "M"
+};
+function convert(num, temp, str) {
+    if (num <= 0) { // return accumulated string if decimal number is less than zero
+        return str;
+    } else {
+        if (numbers[temp] != undefined) { // check if decimal number is a prime number in terms of roman numerals
+            str += numbers[temp]; // if prime, push to string
+            return convert(num - temp, num - temp, str);
+        } else {
+            return convert(num, --temp, str);
+        }
+    }
+}
+//	convertToRoman(45)
+//	convert(45, 45, "") // num <= 0 # false
+//		if (numbers[45] != undefined) # false
+//		return convert(45, 45 - 1, "")
+//			.
+//			.
+//			.
+//		if (numbers[40] != undefined) # true
+//			str = "" + "XL"
+//		return convert(45 - 40, 45 - 40, "XL")
+//		if (numbers[5] != undefined) # true
+//			str = "XL" + "V"
+//		return convert(5 - 5, 5 - 5, "XLV")
+//	convert(0, 0, "XLV") // num <= 0 # true
+//	return "XLV"
+function convertToRoman(num) {
+    return convert(num, num, "");
+}</code>
+			</artice>
+		</section>
+
+		<section class="main-section" id="twenty-four">
+			<header>Caesars Cipher</header>
+			<article>
+				<p><strong>Explanation:</strong> Shifts the letters by some set amount. A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places: 'A' ↔ 'N', 'B' ↔ 'O' and so on.</p>
+				<p><em>Relevant links:</em></p>
+				<ul>
+					<li><a href="https://en.wikipedia.org/wiki/ROT13" target="_blank">ROT13</a></li>
+					<li><a href="https://artofproblemsolving.com/wiki/index.php/Cryptography" target="_blank">Cryptography</a></li>
+					<li><a href="https://www.khanacademy.org/computing/computer-science/cryptography/crypt/v/caesar-cipher" target="_blank">The Caesar cipher</a></li>
+				</ul>
+				<p><strong><a href="../Caesars-Cipher/index.html" target="_blank">Run Code</a></strong></p>
+				<code class="prettyprint lang-js">function rot13(str) {
+  function codeArr(obj, i) { // corresponding encryption to letters (i.e., A -> N)
+    if (i > "A".charCodeAt(0) + 12) { // 26 letters in alphabet, M (13) -> Z (26)
+      return obj;
+    } else { 
+      obj[String.fromCharCode(i)] =  String.fromCharCode(i + 13); // i.e., obj["A"] = "N"
+      obj[String.fromCharCode(i + 13)] =  String.fromCharCode(i); // i.e., obj["N"] = "A"
+      return codeArr(obj, ++i);
+    }
+  }
+  function iterStr(newStr, i) { // iterate through string argument
+    if (i > str.length - 1) {
+      return newStr;
+    } else {
+      if (obj[str[i]] !== undefined) { // append corresponding alphabet transform (encrypt)
+        newStr += obj[str[i]];
+      } else {
+        newStr += str[i] // otherwise append str (i.e., whitespace, etc.)
+      }
+      return iterStr(newStr, ++i);
+    }
+  }
+  let obj = codeArr({}, "A".charCodeAt(0));
+  let newStr = ""; // empty string to return encrypted string
+  return iterStr("", 0);
+}</code>
+			</artice>
+		</section>
+<!--
+		<section class="main-section" id="twenty-five">
+			<header>Telephone Number Validator</header>
+			<article>
+				<p><strong>Explanation:</strong> Validates or rejects the US/CA (+1) phone number passed based on any combinations:.</p>
+        <ul>
+          <li>555-555-5555</li>
+          <li>(555)555-5555</li>
+          <li>(555) 555-5555</li>
+          <li>555 555 5555</li>
+          <li>5555555555</li>
+          <li>1 555 555 5555</li>
+        </ul>
+        <p>Examples of strings to be passed are <strong>800-692-7753</strong> <em>or</em> <strong>8oo-six427676;laskdjf</strong>. Confirms that the country code is <strong>1</strong> if provided. Returns <strong>true</strong> if the string is a valid US phone number; otherwise returns <strong>false</strong>.</p>
+        <p><em>Relevant links:</em></p>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp" target="_blank">MDN: RegExp</a></li>
+          <li><a href="https://github.com/googlei18n/libphonenumber/blob/master/FALSEHOODS.md" target="_blank">Falsehoods Programmers Believe About Phone Numbers</a></li>
+        </ul>
+				<code class="prettyprint lang-js">function telephoneCheck(str) {
+  function isValid(phoneNumberIn) {
+    return (/^(1\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/).test(phoneNumberIn);
+  }
+  return isValid(str);
+}</code>
+			</artice>
+		</section>
+-->
+		<section class="main-section" id="twenty-six">
+			<header>Cash Register</header>
+			<article>
+				<p><strong>Explanation:</strong> Accepts purchase price as the first argument (<strong>price</strong>), payment as the second argument (<strong>cash</strong>), and cash-in-drawer (<strong>cid</strong>) as the third argument. (<strong>cid</strong>) is a 2D array listing available currency. The <strong>checkRegister()</strong> function always returns an object with a <strong>status</strong> and a <strong>change</strong> key:</p>
+        <ul>
+          <li>Returns <strong>{ status: "INSUFFICIENT_FUNDS", change: [ ] }</strong> if cash-in drawer is less than the change due, or if the exact change canno't be returned.</li>
+          <li>Returns <strong>{ status: "OPEN", change: [ . . . ] }</strong>, with the change due in coins and bills, sorted in highest to lowest order, as the value of the <strong>change</strong> key.</li>
+        </ul>
+          <table>
+            <tr>
+              <th><strong>Currency Unit</strong></th>
+              <th><strong>Amount</strong></th>
+            </tr>
+            <tr>
+              <td>Penny</td>
+              <td>$0.01 (PENNY)</td>
+            </tr>
+            <tr>
+              <td>Nickel</td>
+              <td>$0.05 (NICKEL)</td>
+            </tr>
+            <tr>
+              <td>Dime</td>
+              <td>$0.10 (DIME)</td>
+            </tr>
+            <tr>
+              <td>Quarter</td>
+              <td>$0.25 (QUARTER)</td>
+            </tr>
+            <tr>
+              <td>Dollar</td>
+              <td>$1 (DOLLAR)</td>
+            </tr>
+            <tr>
+              <td>Five Dollars</td>
+              <td>$5 (FIVE)</td>
+            </tr>
+            <tr>
+              <td>Ten Dollars</td>
+              <td>$10 (TEN)</td>
+            </tr>
+            <tr>
+              <td>Twenty Dollars</td>
+              <td>$20 (TWENTY)</td>
+            </tr>
+            <tr>
+              <td>One-hundred Dollars</td>
+              <td>$100 (ONE HUNDRED)</td>
+            </tr>
+          </table>
+          <p><em>Relevant links:</em></p>
+          <ul>
+            <li><a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.2" target="_blank">Tree Recursion (Counting Change)</a></li>
+            <li><a href="https://eloquentjavascript.net/04_data.html" target="_blank">Data Structures: Objects and Arrays</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections" target="_blank">Indexed collections</a></li>
+          </ul>
+				<code class="prettyprint lang-js">function checkCashRegister(price, cash, cid) {
+  let denomination = { // refer to coin denomination by value
+    "PENNY": 0.01,
+    "NICKEL": 0.05,
+    "DIME": 0.10,
+    "QUARTER": 0.25,
+    "ONE": 1.00,
+    "FIVE": 5.00,
+    "TEN": 10.00,
+    "TWENTY": 20.00,
+    "ONE HUNDRED": 100.00
+  };
+  function round(x) { // round to nearest hundredths to account for floating point
+    return Math.round(x * 100) / 100;
+  }
+  function iterCid(sum, due, i) { // sum total value of drawer
+    if (i > cid.length - 1) {
+      if (sum == due) {
+        return "CLOSED";
+      } else {
+        return "OPEN";
+      }
+    } else {
+      sum += cid[i][1];
+      return iterCid(sum, due, ++i); 
+    }
+  }
+  function countChange(event, due) { // calculate change owed
+    let obj = {};
+    if (event == "CLOSED") { // if total value of drawer equal change owed, return drawer as is
+      let arr = [];
+      for (let i = 0; i < cid.length; i++) {
+        let temp = [];
+        temp.push(cid[i][0]);
+        temp.push(cid[i][1]);
+        arr.push(temp);
+      }
+      obj["status"] = "CLOSED";
+      obj["change"] = arr;
+      return obj;
+    } else { // otherwise, calculate change owed
+      let coins = []; // coins denomination array
+      for (let amount in denomination) {
+        coins.push(denomination[amount]);
+      }
+      var arr = []; // change in drawer array (2D-array)
+      for (let i = 0; i < cid.length ; i++) {
+        let temp = [];
+        temp.push(cid[i][0]);
+        temp.push(cid[i][1]);
+        arr.push(temp);
+      }
+      let newArr = []; // array to return after calculating change
+      for (let i = coins.length - 1; i >= 0; i--) { // iterate through coins from greatest to least
+        if (coins[i] <= due) { // if coin reference is less than amount due, keep subtracting
+          let sum = 0;
+          let temp = [];
+          while (due >= 0 && arr[i][1] > 0) { // keep subtracting while due >= 0 and change in drawer > 0
+            if (round(due - coins[i]) < 0) { // if change due less coin is < 0, break
+              break;
+            }
+            sum += coins[i]; // sum coins being dispensed
+            due = round(due - coins[i]); // update change due running total
+            arr[i][1] = round(arr[i][1] - coins[i]); // update change in drawer running total
+          }
+          temp.push(arr[i][0]); // push the kind of coin denominator (i.e., "PENNY")
+          temp.push(sum); // push the total amount kind of coins dispensed
+          newArr.push(temp); // 2-D array
+        }
+      }
+      if (due > 0) { // if change is still due, set object with insufficient funds and empty array 
+        obj["status"] = "INSUFFICIENT_FUNDS";
+        obj["change"] = [];
+      } else { // otherwise, set object with new array (updated drawer) and "OPEN" status
+        obj["status"] = "OPEN";
+        obj["change"] = newArr;
+      }
+      return obj; // return object
+    }
+  }
+  return countChange(iterCid(0, cash - price, 0), cash - price); // get object (updated drawer)
+}</code>
+			</artice>
+		</section>
+	</main>
+	<script src="script.js"></script>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</body>
+</html>
