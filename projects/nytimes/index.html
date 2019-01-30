@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Patrick Olila</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="../../img/p.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>
+      NY Times article search
+      <br>
+      <a href="https://github.com/polila" target="_blank"><i class="fab fa-github" style="font-size: 25px; margin-right: 20px"></i></a>
+      <a href="https://ca.linkedin.com/in/patrick-olila-b29518144" target="_blank"><i class="fab fa-linkedin" style="font-size: 25px; margin-right: 20px"></i></a>
+      <a href="https://codepen.io/polila/#" target="_blank"><i class="fab fa-codepen" style="font-size: 25px; margin-right: 20px"></i></a>
+      <a href="https://stackexchange.com/users/11590631/patrick-olila?tab=accounts" target="_blank"><i class="fab fa-stack-overflow" style="font-size: 25px;"></i></a>
+    </h1>
+    <div class="wrapper">
+
+      <div class="controls">
+
+        <form>
+          <p>
+            <label for="search">Enter a SINGLE search term (required): </label>
+            <input type="text" id="search" class="search">
+          </p>
+          <p>
+            <label for="search">Or search by topic (optional): </label>
+            <select type="text" id="auto-search" class="search">
+              <option value=""></option>
+              <option value="sports">Sports</option>
+              <option value="economics">Economics</option>
+              <option value="business">Business</option>
+              <option value="politics">Politics</option>
+              <option value="science">Science</option>
+              <option value="technology">Technology</option>
+              <option value="culture">Culture</option>
+            </select>
+          </p>
+          <p>
+            <label for="start-date">Enter a start date (format YYYYMMDD): </label>
+            <input type="date" id="start-date" class="start-date" pattern="[0-9]{8}">
+          </p>
+          <p>
+            <label for="end-date">Enter an end date (format YYYYMMDD): </label>
+            <input type="date" id="end-date" class="end-date" pattern="[0-9]{8}">
+          </p>
+          <p>
+            <button class="submit">Submit search</button>
+          </p>
+        </form>
+
+        <div id="quotes-container">
+            <h1 style="padding-bottom: 10px;">
+              <blockquote style="font-weight: 400">"<em id="quote-output"></em>"</blockquote>
+              - <i id="author"></i>
+            </h1>
+            <button id="quote-bttn">New quote</button>          
+        </div>
+
+      </div>
+
+      <div class="results">
+
+        <nav>
+          <button class="prev">Previous 10</button>
+          <button class="next">Next 10</button>
+        </nav>
+
+        <section>
+        </section>
+
+      </div>
+
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
